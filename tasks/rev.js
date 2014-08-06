@@ -39,8 +39,8 @@ module.exports = function(grunt) {
           outPath = path.resolve(path.dirname(f), renamed);
 
         grunt.verbose.ok().ok(hash);
-        grunt.verbose.ok().ok(fileNoExt);
-        grunt.verbose.ok().ok(renamed2);
+        grunt.verbose.ok().ok('File noEXT: ' + fileNoExt);
+        grunt.verbose.ok().ok('New file: 'renamed2);
         fs.renameSync(f, outPath);
         grunt.log.write(f + ' ').ok(renamed);
 
