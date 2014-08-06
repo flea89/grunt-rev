@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 
         var hash = md5(f, options.algorithm, 'hex', options.encoding),
           prefix = hash.slice(0, options.length),
-          fileNoExt = path.basename(f).split('.');
+          fileNoExt = path.basename(f).split('.'),
           renamed = fileNoExt.splice(fileNoExt.length -1, 0, prefix).join('.'),
           outPath = path.resolve(path.dirname(f), renamed);
 
