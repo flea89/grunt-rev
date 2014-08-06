@@ -34,13 +34,13 @@ module.exports = function(grunt) {
         var hash = md5(f, options.algorithm, 'hex', options.encoding),
           prefix = hash.slice(0, options.length),
           fileNoExt = path.basename(f).split('.'),
-          renamed2 = fileNoExt.splice(fileNoExt.length -1, 0, prefix).join('.'),
-          renamed = [prefix, path.basename(f)].join('.'),
+          fileNoExt.splice(fileNoExt.length -1, 0, prefix),
+          renamed = fileNoExt.join('.'),
           outPath = path.resolve(path.dirname(f), renamed);
 
         grunt.verbose.ok().ok(hash);
         grunt.verbose.ok().ok('File noEXT: ' + fileNoExt);
-        grunt.verbose.ok().ok('New file: ' + renamed2);
+        grunt.verbose.ok().ok('New file: 'renamed2);
         fs.renameSync(f, outPath);
         grunt.log.write(f + ' ').ok(renamed);
 
