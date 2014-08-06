@@ -13,7 +13,6 @@ var fs = require('fs'),
   crypto = require('crypto');
 
 module.exports = function(grunt) {
-  var fileNoExt;
   function md5(filepath, algorithm, encoding, fileEncoding) {
     var hash = crypto.createHash(algorithm);
     grunt.log.verbose.write('Hashing ' + filepath + '...');
@@ -35,7 +34,7 @@ module.exports = function(grunt) {
         var hash = md5(f, options.algorithm, 'hex', options.encoding),
           prefix = hash.slice(0, options.length),
           fileNoExt = path.basename(f).split('.');
-          renamed = fileNoExt.splice(fileNoExt.length -1, 0, prefix).join('.');
+          renamed = fileNoExt.splice(fileNoExt.length -1, 0, prefix).join('.'),
           outPath = path.resolve(path.dirname(f), renamed);
 
         grunt.verbose.ok().ok(hash);
