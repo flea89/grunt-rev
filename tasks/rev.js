@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 
         grunt.verbose.ok().ok(hash);
         grunt.verbose.ok().ok('File noEXT: ' + fileNoExt);
-        grunt.verbose.ok().ok('New file: 'renamed2);
+        grunt.verbose.ok().ok('New file: ' + renamed2);
         fs.renameSync(f, outPath);
         grunt.log.write(f + ' ').ok(renamed);
 
